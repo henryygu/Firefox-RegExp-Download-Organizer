@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "RegExp Download Organizer",
+    "version": "1.0",
+    "description": "Organizes downloads using regular expressions",
+    "permissions": [
+      "downloads",
+      "downloads.open",
+      //"downloads.shelf",
+      "webRequest",
+      "webRequestBlocking",
+      "*://*/*"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "options_ui": {
+      "page": "options.html",
+      "browser_style": true
+    },
+    "icons": {
+      "48": "icons/icon.png"
+    }
+  }
