@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RegExp Download Organizer Options</title>
+  <title>Extension Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Download Organization Rules</h1>
-  <div id="rules"></div>
-  <button id="addRule">Add Rule</button>
-  <button id="saveRules">Save Rules</button>
+  <h1>Extension Options</h1>
+  <label for="dateFormat">Date Format:</label>
+  <input type="text" id="dateFormat" placeholder="YYYY/MM" />
+  <button id="saveButton">Save</button>
+  <p id="status"></p>
   <script src="options.js"></script>
 </body>
 </html>
