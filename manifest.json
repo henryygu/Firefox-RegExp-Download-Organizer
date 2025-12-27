@@ -1,26 +1,28 @@
 {
-    "manifest_version": 2,
-    "name": "RegExp Download Organizer",
-    "version": "1.0",
-    "description": "Organizes downloads using regular expressions",
-    "permissions": [
-      "downloads",
-      "downloads.open",
-      //"downloads.shelf",
-      "webRequest",
-      "storage",
-      "webRequestBlocking",
-      "*://*/*"
-    ],
-    "background": {
-      "scripts": ["background.js"],
-      "persistent": false
-    },
-    "options_ui": {
-      "page": "options.html",
-      "browser_style": true
-    },
-    "icons": {
-      "48": "icons/icon.png"
+  "manifest_version": 3,
+  "name": "RegExp Download Organizer",
+  "version": "2.0",
+  "description": "Organizes downloads using regular expressions",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "regexp-download-organizer@example.com",
+      "strict_min_version": "109.0"
     }
   }
+}

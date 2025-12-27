@@ -1,13 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>RegExp Download Organizer Options</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RegExp Download Organizer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Download Organization Rules</h1>
-  <div id="rules"></div>
-  <button id="addRule">Add Rule</button>
-  <button id="saveRules">Save Rules</button>
+  <div class="container">
+    <header class="app-header">
+      <div class="logo-area">
+        <svg class="icon-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        <h1>Download Organizer</h1>
+      </div>
+      <p class="subtitle">Automate your downloads with Regular Expressions</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="card-header">
+          <h2>Rules</h2>
+          <button id="addRuleBtn" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add Rule
+          </button>
+        </div>
+        <div class="card-body">
+          <div id="rulesList" class="rules-list">
+            <!-- Rules will be injected here -->
+            <div class="empty-state">
+              <p>No rules defined yet.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button id="saveBtn" class="btn btn-success">Save Changes</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Test Your Rules</h2>
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <label>Test Filename or URL</label>
+            <div style="display: flex; gap: 10px;">
+              <input type="text" id="testInput" placeholder="e.g. example_document.pdf" style="flex: 1;">
+              <button id="testBtn" class="btn btn-primary">Check Match</button>
+            </div>
+          </div>
+          <div id="testResult" class="test-result hidden">
+            <!-- Result injected here -->
+          </div>
+        </div>
+      </section>
+
+      <section class="card help-card">
+        <h3>How to use</h3>
+        <ul>
+          <li><strong>RegExp Pattern:</strong> A regular expression to match the filename or URL. (e.g.
+            <code>\.pdf$</code> or <code>unsplash.com</code>)
+          </li>
+          <li><strong>Folder:</strong> The folder inside your Downloads directory.</li>
+          <li><strong>Variables:</strong> You can use <code>{year}</code>, <code>{month}</code>,
+            <code>{monthName}</code>, <code>{day}</code> in folder names.<br>
+            Example: <code>{year}/{month}-{monthName}</code> &rarr; <code>2024/12-Dec</code>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden">Settings Saved</div>
+
+  <template id="ruleTemplate">
+    <div class="rule-item">
+      <div class="input-group">
+        <label>Pattern</label>
+        <input type="text" class="pattern-input" placeholder="e.g. \.jpg$">
+      </div>
+      <div class="arrow">→</div>
+      <div class="input-group">
+        <label>Folder</label>
+        <input type="text" class="folder-input" placeholder="e.g. Images">
+      </div>
+      <button class="btn-icon delete-btn" title="Remove Rule">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+      </button>
+    </div>
+  </template>
+
   <script src="options.js"></script>
 </body>
+
 </html>
